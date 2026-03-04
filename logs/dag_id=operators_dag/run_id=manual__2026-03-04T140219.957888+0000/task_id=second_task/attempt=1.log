@@ -1,0 +1,5 @@
+{"timestamp":"2026-03-04T14:02:22.474678Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-04T14:02:22.476052Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/3_operators.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-04T14:02:22.495480Z","level":"warning","event":"The `airflow.operators.bash.BashOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.bash.BashOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/3_operators.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-03-04T14:02:22.509682Z","level":"info","event":"this is the second task","logger":"task.stdout"}
+{"timestamp":"2026-03-04T14:02:22.509647Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator","filename":"python.py","lineno":230}

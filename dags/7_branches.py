@@ -47,7 +47,6 @@ def branches_dag():
         s3_data = kwargs["ti"].xcom_pull(task_ids="transform_data_s3")
         return f"echo 'Loaded Data:{api_data}, {db_data},{s3_data}'"
     #create decider Node
-    @task.branch
     @task.bash
     def no_load_task_weekend(**kwargs):
         print("Not loading on weekends...")

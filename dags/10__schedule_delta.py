@@ -1,14 +1,15 @@
 from airflow.sdk import dag,task
-import pendulum
-
+from pendulum import datetime, duration
+from airflow.timetables.trigger import DeltaTriggerTimetable
 @dag(
-        dag_id="schedule_dag",
-        start_date = pendulum.datetime(year=2026,month=1,day=1,hour=0,minute=0,tz="America/New_York"),
-        schedule="@daily",
+        dag_id="delta_schedule_dag",
+        start_date = datetime(year=2026,month=1,day=26,hour=0,minute=0,tz="America/New_York"),
+        schedule=DeltaTriggerTimetable(duration(days=3)), # correra cada 3 dias 
+        end_date = datetime(year=2026,month=1,day=31,tz="America/New_York"), #Cron Helper
         is_paused_upon_creation=False,
         catchup = True
 )
-def schedule_dag():
+def delta_schedule_dag():
     @task.python
     def first_task():
         print("This is the first task")
@@ -25,7 +26,7 @@ def schedule_dag():
     third = third_task()
     first >> second >> third
 # Instantiating the Dag
-schedule_dag()
+delta_schedule_dag()
 
 
 
